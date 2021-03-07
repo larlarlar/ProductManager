@@ -15,16 +15,4 @@ public class Smatphone extends Product {
         return manufacturer;
     }
 
-    public boolean matches(Product product, String search) {
-        if (super.matches(product, search)) {
-            return true;
-        }
-        if (product instanceof Smatphone) {
-            Smatphone smatphone = (Smatphone) product;
-            if (smatphone.getManufacturer().equalsIgnoreCase(search)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
