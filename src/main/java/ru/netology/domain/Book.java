@@ -15,17 +15,17 @@ public class Book extends Product {
         return author;
     }
 
-    public boolean matches(Product product, String search) {
-        if (super.matches(product, search)) {
-            return true;
-        }
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getAuthor().equalsIgnoreCase(search)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean matches(Product product, String search) {
+//        if (super.matches(product, search)) {
+//            return true;
+//        }
+//        if (product instanceof Book) {
+//            Book book = (Book) product;
+//            if (book.getAuthor().equalsIgnoreCase(search)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
 }
