@@ -20,16 +20,22 @@ public class ProductManager {
         return repository.findAll();
     }
 
-    public Product[] searchBy(String text) {
-        Product[] result = new Product[0];
-        for (Product product : repository.findAll()) {
-            if (product.matches(product, text)) {
-                Product[] tmp = new Product[result.length + 1];
-                System.arraycopy(result, 0, tmp, 0, result.length);
-                tmp[tmp.length - 1] = product;
-                result = tmp;
-            }
+
+
+
+
+    private boolean matches(Product product, String search) {
+        if (product.getName().equalsIgnoreCase(search)) {
+            return true;
         }
-        return result;
+        if (product instanceof Book) {
+            var book = (Book) product;
+            return book.getAuthor().equalsIgnoreCase(search);
+        }
+        if (product instanceof Smatphone) {
+            var phone = (Smatphone) product;
+            return phone.getManufacturer().equalsIgnoreCase(search);
+        }
+        return false;
     }
 }
