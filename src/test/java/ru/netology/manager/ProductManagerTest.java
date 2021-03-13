@@ -33,7 +33,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldFindBook() {
+    public void shouldFindBookByName() {
 
         Product[] actual = manager.searchBy("Book1");
         Product[] expected = new Product[]{firstBook};
@@ -41,9 +41,24 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldFindSmatphone() {
+    public void shouldFindBookByAutthor() {
+
+        Product[] actual = manager.searchBy("Author2");
+        Product[] expected = new Product[]{secondBook};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindSmatphoneByName() {
         Product[] actual = manager.searchBy("Telephone2");
         Product[] expected = new Product[]{secondSmatphone};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindSmatphoneByManufacturer() {
+        Product[] actual = manager.searchBy("Manufacturer1");
+        Product[] expected = new Product[]{firstSmatphone};
         assertArrayEquals(expected, actual);
     }
 }
