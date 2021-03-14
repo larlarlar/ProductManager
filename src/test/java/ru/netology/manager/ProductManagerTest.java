@@ -58,4 +58,13 @@ class ProductManagerTest {
         Product[] actual = manager.searchBy("Telephone2");
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void shouldRemoveById() {
+        Product[] expected = new Product[] {secondBook, firstSmatphone, secondSmatphone};
+
+        repository.removeById(1);
+
+        assertArrayEquals(expected, repository.findAll());
+    }
 }
